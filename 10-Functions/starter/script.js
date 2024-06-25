@@ -28,7 +28,7 @@
 //Second segment
 const flight = 'LH24';
 const shuv = {
-  name: 'Shuvkant Chaudhry Phanait',
+  name: 'Shuvkant Chaudhary',
   passport: 123456789,
 };
 const checkIn = function (flightNum, passenger) {
