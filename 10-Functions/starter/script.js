@@ -42,9 +42,9 @@ const checkIn = function (flightNum, passenger) {
     alert('Wrong passport');
   }
 };
-checkIn(flight, shuv);
-console.log(flight);
-console.log(shuv);
+// checkIn(flight, shuv);
+// console.log(flight);
+// console.log(shuv);
 
 const newPassport = function (person) {
   person.passport = Math.trunc(Math.random() * 10000000);
