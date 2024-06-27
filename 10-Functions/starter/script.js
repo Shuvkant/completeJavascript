@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 // const bookings = [];
 
 // const createBooking = function (
@@ -77,7 +77,7 @@ const transformer = function (str, fn) {
 transformer('Javascript is the best', upperFirstWord);
 transformer('Javascript is the best', oneWord);
 transformer('SHUVKANT is a decent guy', lowerFirstword);
-  
+
 //JS calls the callback function all the time
 const high5 = function () {
   console.log('🙏');
@@ -103,8 +103,8 @@ greet('Namaste')('Joe Biden');
 const greetArr=greeting=>name=>console.log(`${greeting} ${name}`);
 greetArr('Gor Lagaichiyau')('Mummy');
 */
-//Call and APPly method implementation
 /*
+//Call and APPly method implementation
 const nepalAirlines={
   airline:'Nepal Arilines',
   iataCode:'NA',
@@ -112,7 +112,7 @@ const nepalAirlines={
   book(flightNum, name){
     console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
     this.bookings.push(({flight:`${this.iataCode}${flightNum}`, name}));
-    
+
   }
 }
 nepalAirlines.book(123, 'Shuvkant Chaudhary Phanait');
@@ -131,7 +131,7 @@ const yetiAirlines={
   bookings:[],
 }
 //Call Method
-const book=nepalAirlines.book; 
+const book=nepalAirlines.book;
 book.call(nepalAirlines, 124, 'Narendra Modi');
 console.log(nepalAirlines);
 
@@ -147,4 +147,83 @@ const flightData=[423, 'Haris Chandra'];
 book.apply(yetiAirlines, flightData);
 console.log(yetiAirlines);
 book.call(yetiAirlines, ...flightData);
+
+//Bind Method
+const bookBA=book.bind(buddhaAir);
+const bookYA=book.bind(yetiAirlines);
+const bookNA=book.bind(nepalAirlines);
+bookBA(343, 'Ramesh Pandit');
+console.log(buddhaAir);
+
+const bookBA235=bookBA.bind(buddhaAir, 234);
+bookBA235('Jayanti Chaudhary');
+console.log(buddhaAir);
 */
+/*
+
+//With event listeners
+nepalAirlines.planes=300;
+nepalAirlines.buyplane=function(){
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+}
+document.querySelector('.buy').addEventListener('click', nepalAirlines.buyplane.bind(nepalAirlines));
+*/
+/*
+//Partial application
+
+const addTax=(rate, value)=>value+value*rate;
+
+console.log(addTax(0.10,100));
+const addVAT=addTax.bind(null, 0.1);
+console.log(addVAT(200));
+
+const addTaxRate=function(rate){
+  return function(value){
+    return value+ value*rate;
+  }
+}
+
+const addVAT2=addTaxRate(0.5);
+console.log(addVAT2(100));
+console.log(addVAT2(500));
+*/
+
+const poll = {
+  question: "What is your favourite programming language?",
+  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    //Get answer
+    const answer = Number(
+      prompt(
+        `${this.question}\n${this.options.join("\n")}\n(write option number)`,
+      ),
+    );
+    console.log(answer);
+    //Register answer
+    typeof answer === "number" && answer < this.answers.length &&
+      this.answers[answer]++;
+    this.displayResults();
+    this.displayResults("string");
+  },
+  displayResults(type = "array") {
+    if (type === "array") {
+      console.log(this.answers);
+    } else {
+      console.log(`Poll results are ${this.answers.join(", ")}`);
+    }
+  },
+};
+
+//poll.registerNewAnswer();
+document.querySelector(".poll").addEventListener(
+  "click",
+  poll.registerNewAnswer.bind(poll),
+);
+
+poll.displayResults.call({ answers: [5, 2, 3] }, "string");
+poll.displayResults.call({ answers: [5, 2, 3, 7, 12, 14] }, "string");
+poll.displayResults.call({ answers: [5, 2, 3, 4, 5, 6, 7] });
