@@ -57,6 +57,10 @@ const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
 };
 
+const lowerFirstword=function(str ){
+  const [first, ...others]=str.split(' ');
+  return [first.toLowerCase(), ...others].join( ' ');
+}
 const upperFirstWord = function (str) {
   const [first, ...others] = str.split(' ');
   return [first.toUpperCase(), ...others].join(' ');
@@ -70,9 +74,12 @@ const transformer = function (str, fn) {
 };
 transformer('Javascript is the best', upperFirstWord);
 transformer('Javascript is the best', oneWord);
-
+transformer('SHUVKANT is a decent guy', lowerFirstword);
+  
+//JS calls the callback function all the time
 const high5 = function () {
   console.log('🙏');
 };
 
 document.body.addEventListener('click', high5);
+['Shuvkant', 'Hari', 'Santosh', 'Ramesh'].forEach(high5);
