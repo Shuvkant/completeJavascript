@@ -53,6 +53,8 @@ const newPassport = function (person) {
 newPassport(shuv);
 checkIn(flight, shuv);*/
 
+//Callback Function
+/*
 const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
 };
@@ -83,3 +85,66 @@ const high5 = function () {
 
 document.body.addEventListener('click', high5);
 ['Shuvkant', 'Hari', 'Santosh', 'Ramesh'].forEach(high5);
+*/
+
+//Greeting Functions Discussion
+/*
+const greet=function(greeting){
+  return function(name ){
+    console.log(`${greeting} ${name}`)
+  }
+}
+const greetHey=greet('Hey');
+greetHey('Shuvkant');
+
+greet('Namaste')('Joe Biden');
+
+//Challenge
+const greetArr=greeting=>name=>console.log(`${greeting} ${name}`);
+greetArr('Gor Lagaichiyau')('Mummy');
+*/
+//Call and APPly method implementation
+/*
+const nepalAirlines={
+  airline:'Nepal Arilines',
+  iataCode:'NA',
+  bookings:[],
+  book(flightNum, name){
+    console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+    this.bookings.push(({flight:`${this.iataCode}${flightNum}`, name}));
+    
+  }
+}
+nepalAirlines.book(123, 'Shuvkant Chaudhary Phanait');
+nepalAirlines.book(456, 'Emanuel Macron');
+
+
+const buddhaAir={
+  airline:'Buddha Air' ,
+  iataCode:'BA',
+  bookings:[],
+
+}
+const yetiAirlines={
+  airline:'Yeti Airlines',
+  iataCode:'YA',
+  bookings:[],
+}
+//Call Method
+const book=nepalAirlines.book; 
+book.call(nepalAirlines, 124, 'Narendra Modi');
+console.log(nepalAirlines);
+
+book.call(buddhaAir, 254, 'Marrie Currie');
+book.call(buddhaAir, 333, 'Pushpa Kamal Dahal');
+console.log(buddhaAir);
+
+book.call(yetiAirlines, 678, 'Georgia Meloni');
+book.call(yetiAirlines, 687, 'Vladmir Putin');
+
+//Apply Method
+const flightData=[423, 'Haris Chandra'];
+book.apply(yetiAirlines, flightData);
+console.log(yetiAirlines);
+book.call(yetiAirlines, ...flightData);
+*/
