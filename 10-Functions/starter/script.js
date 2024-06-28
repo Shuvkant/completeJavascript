@@ -190,7 +190,7 @@ const addVAT2=addTaxRate(0.5);
 console.log(addVAT2(100));
 console.log(addVAT2(500));
 */
-
+/*
 const poll = {
   question: "What is your favourite programming language?",
   options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
@@ -227,3 +227,40 @@ document.querySelector(".poll").addEventListener(
 poll.displayResults.call({ answers: [5, 2, 3] }, "string");
 poll.displayResults.call({ answers: [5, 2, 3, 7, 12, 14] }, "string");
 poll.displayResults.call({ answers: [5, 2, 3, 4, 5, 6, 7] });
+*/
+
+//New section
+/*
+const runfunction = function () {
+  console.log("This function will never run again");
+};
+runfunction();
+//Immdiately invoked functional expression
+(function () {
+  console.log("This is shuvkant Chaudhary Phanait");
+})();
+(() => {
+  console.log("This will also never run again");
+})();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 34;
+}
+
+//console.log(isPrivate);
+console.log(notPrivate);
+*/
+
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passenger`);
+  };
+};
+const booker = secureBooking();
+booker();
+booker();
+booker();
+console.dir(booker);
