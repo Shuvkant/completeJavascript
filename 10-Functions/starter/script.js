@@ -280,7 +280,7 @@ g();
 f();
 const h = function () {
   const b = 224;
-  return function () {
+  f = function () {
     console.log(b * 2);
   };
 };
