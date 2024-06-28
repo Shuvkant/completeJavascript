@@ -1,4 +1,5 @@
 "use strict";
+
 // const bookings = [];
 
 // const createBooking = function (
@@ -252,6 +253,8 @@ runfunction();
 console.log(notPrivate);
 */
 
+//Understanding Closures
+/*
 const secureBooking = function () {
   let passengerCount = 0;
   return function () {
@@ -264,3 +267,22 @@ booker();
 booker();
 booker();
 console.dir(booker);
+*/
+
+let f;
+const g = function () {
+  const a = 24;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+g();
+f();
+const h = function () {
+  const b = 224;
+  return function () {
+    console.log(b * 2);
+  };
+};
+h();
+f();
