@@ -268,7 +268,8 @@ booker();
 booker();
 console.dir(booker);
 */
-
+//Example 1
+/*
 let f;
 const g = function () {
   const a = 24;
@@ -278,6 +279,7 @@ const g = function () {
 };
 g();
 f();
+console.dir(f);
 const h = function () {
   const b = 224;
   f = function () {
@@ -286,3 +288,29 @@ const h = function () {
 };
 h();
 f();
+console.dir(f);
+
+ */
+
+//Example 2
+
+/*
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups each with ${perGroup} passengrs`);
+  }, wait * 1000);
+  console.log(`Will start boarding in ${n} seconds.`);
+};
+boardPassengers(180, 3);
+*/
+
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
+
+  document.querySelector("body").addEventListener("click", function () {
+    header.style.color = "blue";
+  });
+})();
