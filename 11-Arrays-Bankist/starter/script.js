@@ -205,3 +205,18 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 
 console.log(max);
+
+/*
+//Challenge about the ages of dogs
+//
+const calculateHumanAge = function (ages) {
+  const humanAges = ages.map((age) => (age <= 2 ? 2 * age : 16 + 4 * age));
+  const adults = humanAges.filter((age) => age >= 18);
+  const average = adults.reduce((acc, age) => acc + age, 0) / adults.length;
+  console.log(humanAges);
+  console.log(adults);
+  console.log(average);
+};
+calculateHumanAge([5, 2, 4, 1, 15, 8, 3]);
+calculateHumanAge([16, 6, 10, 5, 6, 1, 4]);
+*/
