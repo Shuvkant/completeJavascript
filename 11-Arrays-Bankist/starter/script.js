@@ -243,6 +243,7 @@ calculateHumanAge([5, 2, 4, 1, 15, 8, 3]);
 calculateHumanAge([16, 6, 10, 5, 6, 1, 4]);
 */
 
+/*
 //The Magic of Chaining
 const euroToUsd = 1.1;
 const totalDepositsUSD = movements.filter((mov) => mov > 0).map((mov) =>
@@ -252,3 +253,15 @@ const totalDepositsUSD = movements.filter((mov) => mov > 0).map((mov) =>
   0,
 );
 console.log(totalDepositsUSD);
+*/
+
+/*
+// The find methods
+const firstWithdrawal = movements.find((mov) => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+const account = accounts.find((acc) => acc.owner === "Jessica Davis");
+console.log(account);
+*/
