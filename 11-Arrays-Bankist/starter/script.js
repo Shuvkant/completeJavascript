@@ -437,3 +437,39 @@ console.log(movements);
 movements.sort((a, b) => b - a);
 console.log(movements);
 */
+
+//Array Methods Practice
+
+//1.
+const bankDepositSum = accounts.flatMap((acc) => acc.movements).filter((mov) =>
+  mov > 0
+).reduce((sums, mov) => sums + mov, 0);
+console.log(bankDepositSum);
+
+//2.
+const { deposits, withdrawls } = accounts.flatMap((acc) => acc.movements)
+  .reduce((sums, cur) => {
+    sums[cur > 0 ? "deposits" : "withdrawls"] += cur;
+    return sums;
+  }, { withdrawls: 0, deposits: 0 });
+
+console.log(deposits, withdrawls);
+
+// This is a nice title
+//
+const convertTitleCase = function (title) {
+  const exceptions = ["and", "a", "an", "the", "but", "or", "on", "in", "with"];
+  const capitalize = (str) => str[0].toUpperCase() + str.slice(1);
+
+  const titleCase = title.toLowerCase().split(" ").map((word) =>
+    exceptions.includes(word) ? word : capitalize(word)
+  ).join(" ");
+  return capitalize(titleCase);
+};
+console.log(
+  convertTitleCase("this is one of the beautiful flower that i have seen."),
+);
+
+console.log(
+  convertTitleCase("and is one of the beautiful flower that i have seen."),
+);
