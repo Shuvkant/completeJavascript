@@ -179,6 +179,23 @@ btnTransfer.addEventListener("click", function (e) {
   }
 });
 
+//Loan Amount
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  if (
+    amount > 0 && currentAccount.movements.some((mov) => mov >= amount / 10)
+  ) {
+    //Add movement
+    currentAccount.movements.push(amount);
+
+    //Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = "";
+});
+
 //closing account
 
 btnClose.addEventListener("click", function (e) {
@@ -286,7 +303,7 @@ console.log(deposits);
 const withdrawls = movements.filter((mov) => mov < 0);
 console.log(withdrawls);
 */
-console.log(movements);
+//console.log(movements);
 //accumulator ->SNOWBALL
 //const balance = movements.reduce(function (acc, cur, i, arr) {
 // console.log(`Iteration ${i} : ${acc}`);
@@ -294,8 +311,8 @@ console.log(movements);
 //}, 0);
 
 const balance = movements.reduce((acc, cur) => acc + cur, 0);
-console.log(balance);
-
+//console.log(balance);
+/*
 //maximum value
 const max = movements.reduce((acc, mov) => {
   if (acc > mov) {
@@ -306,7 +323,7 @@ const max = movements.reduce((acc, mov) => {
 }, movements[0]);
 
 console.log(max);
-
+*/
 /*
 //Challenge about the ages of dogs
 //
@@ -343,3 +360,21 @@ console.log(accounts);
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
 */
+
+console.log(movements);
+// EQUALITY
+console.log(movements.includes(-130));
+
+// SOME: CONDITION
+const anyDeposits = movements.some((mov) => mov > 0);
+console.log(anyDeposits);
+
+//EVERY: CONDITION
+console.log(movements.every((mov) => mov > 0));
+console.log(account4.movements.every((mov) => mov > 0));
+
+// Separate Callback
+const deposit = (mov) => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
