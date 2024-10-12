@@ -278,3 +278,26 @@ labelBalance.addEventListener('click', function () {
   });
 });
 */
+/*
+const transferFee1 = 1_500;
+const transferFee2 = 15_00;
+console.log(transferFee1, transferFee2);
+*/
+/*
+const now = new Date();
+console.log(now);
+
+//create a date
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+//Working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.toISOString);
+console.log(future.getFullYear);
+console.log(future.getMonth);
+console.log(future.getTime);
+console.log(Date.now());
+console.log(new Date(1728729324751));
+*/
