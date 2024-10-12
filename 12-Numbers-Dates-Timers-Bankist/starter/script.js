@@ -253,7 +253,7 @@ btnSort.addEventListener("click", function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
-
+/*
 //console.log(23 === 23.0);
 //console.log(0.1 + 0.2);
 //console.log(0.1 + 0.2 === 0.3);
@@ -261,3 +261,20 @@ btnSort.addEventListener("click", function (e) {
 //Checking if number is isFinite();
 console.log(Number.isFinite(20));
 console.log(Number.isFinite("20"));
+*/
+/*
+console.log(64 ** (1 / 3));
+console.log(27 ** (1 / 3));
+console.log(125 ** (1 / 3));
+console.log(8 ** (1 / 3));
+console.log(Math.sqrt(225));
+
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+    // 0, 2, 4, 6
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+    // 0, 3, 6, 9
+    if (i % 3 === 0) row.style.backgroundColor = 'blue';
+  });
+});
+*/
