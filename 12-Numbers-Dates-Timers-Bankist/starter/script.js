@@ -329,3 +329,14 @@ console.log(new Date(1728729324751));
 const locale = navigator.language;
 console.log(locale);
 */
+/*
+//SetTimeOut
+setTimeout(() => console.log(`You are really incredible person.`), 2000);
+console.log("hello there");
+
+//SetInterval
+setInterval(function () {
+  const now = new Date();
+  console.log(now);
+}, 1000);
+*/
