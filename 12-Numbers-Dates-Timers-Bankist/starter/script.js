@@ -89,12 +89,20 @@ const displayMovements = function (movements, sort = false) {
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
+    const date = new Date();
+    const day = `${date.getDate()}`.padStart(2, 0);
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const minute = `${date.getMinutes()}`.padStart(2, 0);
+    const displayDate = `${day}/${month}/${year}, ${hour}:${minute}`;
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}€</div>
+<div class="movements__date">${displayDate}</div>
+        <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
 
@@ -150,10 +158,14 @@ const updateUI = function (acc) {
   // Display summary
   calcDisplaySummary(acc);
 };
+// Fake Always Loged In
+let currentAccount;
+currentAccount = account1;
+updateUI(currentAccount);
+containerApp.style.opacity = 100;
 
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
 
 btnLogin.addEventListener("click", function (e) {
   // Prevent form from submitting
@@ -171,6 +183,14 @@ btnLogin.addEventListener("click", function (e) {
     }`;
     containerApp.style.opacity = 100;
 
+    //Create current date and time
+    const now = new Date();
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minute}`;
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
@@ -198,6 +218,9 @@ btnTransfer.addEventListener("click", function (e) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
+    //Add transfer date
+    currentAccount.movementsDates.push(new Date());
+    receiverAcc.movementsDates.push(new Date());
     // Update UI
     updateUI(currentAccount);
   }
@@ -213,7 +236,8 @@ btnLoan.addEventListener("click", function (e) {
   ) {
     // Add movement
     currentAccount.movements.push(amount);
-
+    //Add loan date
+    currentAccount.movementsDates.push(new Date());
     // Update UI
     updateUI(currentAccount);
   }
@@ -300,4 +324,8 @@ console.log(future.getMonth);
 console.log(future.getTime);
 console.log(Date.now());
 console.log(new Date(1728729324751));
+*/
+/*
+const locale = navigator.language;
+console.log(locale);
 */
